@@ -38,17 +38,17 @@ const comparePwToPolicy = (policy: Policy, password: string): boolean => {
 
 // loop over all inputs and find out if pw is valid or not and return amount of valid pws
 const getValidPasswords = (inputs: string[]): number => {
-    let numberOfValidPasswords = 0;
+    let valid = 0;
     inputs.forEach(str => {
         const DbObject = getDbObject(str);
         const policy = getPolicy(DbObject.policy);
         const isValidPw = comparePwToPolicy(policy, DbObject.password);
 
         // if password matches the policy increase numberOfValidPasswords by 1
-        if(isValidPw) numberOfValidPasswords++;
+        if(isValidPw) valid++;
     }) 
 
-    return numberOfValidPasswords;
+    return valid;
 }; 
 
 const ValidPasswords = getValidPasswords(inputs);
