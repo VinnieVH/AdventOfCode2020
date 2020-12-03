@@ -1,9 +1,8 @@
 import fs from 'fs';
 import { DbObject } from './DbObject';
-import { Policy } from './Policy';
+import { PartOnePolicy as Policy } from './Policy';
 
 const inputs: string[] = fs.readFileSync('input.txt', 'utf8').toString().split("\n");
-console.log("inputs from file as array: ", inputs);
 
 // split policy and password
 const getDbObject = (dbLine: string): DbObject => {
